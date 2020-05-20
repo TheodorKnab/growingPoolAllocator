@@ -1,7 +1,8 @@
 #include "growingPoolAllocator.h"
 #include <cassert>
 
-GrowingPoolAllocator::GrowingPoolAllocator(size_t chunkSize, size_t growPoolByChunkAmount){
+GrowingPoolAllocator::GrowingPoolAllocator(size_t chunkSize, size_t growPoolByChunkAmount){	
+    assert(chunkSize >= 8);	
     m_chunkSize = chunkSize;
     m_growPoolByAmountOfChunks = growPoolByChunkAmount;
     m_freeList = Freelist(allocatePool(), m_chunkSize, m_growPoolByAmountOfChunks);

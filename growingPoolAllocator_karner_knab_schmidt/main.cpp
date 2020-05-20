@@ -19,8 +19,8 @@ int main()
     void* testPtr2 = allocator.alloc(4);
 
     //TEST-CASE 2 | Asign value to Pointer, then free it from the allocator and try to read its value again
-    *static_cast<int*>(testPtr0) = 5;	
-    std::cout << *static_cast<int*>(testPtr0) << std::endl;
+    *reinterpret_cast<int*>(testPtr0) = 5;	
+    std::cout << *reinterpret_cast<int*>(testPtr0) << std::endl;
 	
     allocator.free(testPtr0);	
     std::cout << *static_cast<int*>(testPtr0) << std::endl;
@@ -33,7 +33,7 @@ int main()
 
 
     //TEST-CASE 3 | Assert on allocated size greater than chunk size from allocator
-	//void* testPtr2 = allocator.alloc(16);
+	//void* testPtr3 = allocator.alloc(16);
 
 	
 	//TEST-CASE 4 | Assert on freeing an already free positions

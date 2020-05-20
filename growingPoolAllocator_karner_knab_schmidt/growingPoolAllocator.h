@@ -11,7 +11,7 @@ class GrowingPoolAllocator
 {
 public:
     /**
-     * \param chunkSize Size of one chunk of the pool in bytes
+     * \param chunkSize Size of one chunk of the pool in bytes. Has to be a minimum of 8, to store memory addresses correctly (for x64 Architecture)
      * \param growPoolByChunkAmount Defines with how many chunks the allocator starts and
      * by how many chunks the allocator grows when no chunks are available
      */
